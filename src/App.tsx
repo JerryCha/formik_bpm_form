@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import InputText from './packages/BpmForm/controls/InputText';
+import FormRender from './packages/BpmForm/render/FormRender';
+import { FormModel } from './packages/BpmForm/type/schema';
+
+const schema: FormModel = {
+  type: 'form',
+  controls: [
+    {
+      id: '111',
+      name: 'field1',
+      label: '字段1',
+      type: 'InputText',
+    }
+  ]
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormRender formModel={schema} widgets={[InputText]} />
     </div>
   );
 }
